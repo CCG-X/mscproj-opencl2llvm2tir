@@ -1,0 +1,14 @@
+ret void }
+ret void }
+define void @kernelInput(i32 %aIn0, i32 %aIn1, i32 %ch00, i32 %ch01) pipe { ret void }
+define void @kernelCompute(i32 %ch00, i32 %ch01, i32 %ch1) pipe { ret void }
+define void @kernelOutput(i32 %aOut, i32 %ch1) pipe { ret void }
+
+;---------------
+;KernelTop
+;---------------
+call @kernelInput(i32%aIn0,i32%aIn1,i32%ch00,i32%ch01)
+call @kernelCompute(i32%ch00,i32%ch01,i32%ch1)
+call @kernelOutput(i32%aOut,i32%ch1)
+ret void
+}
